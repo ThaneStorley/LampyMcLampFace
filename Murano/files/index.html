@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+		<link rel="stylesheet" href="modules/switch.css">
+		<link rel="stylesheet" href="modules/textbox.css">
+		<link rel="stylesheet" href="modules/slider.css">
+
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <title>Thane's Cloud</title>
+	    <script type="text/javascript" src="src/index.js"></script>
+
+	</head>
+	<center><body style="background-color:powderblue;">
+	<div id="title"></div>
+    <h1>☁️Control the Cloud☁️</h1>    	
+		<div id="toggle"></div>
+		<h2>Off/On</h2>
+				<label class="switch">
+				<input type="checkbox" id='switch' value="0" onclick="$(this).val(this.checked ? 1 : 0)"'>
+				<span class="slider round"></span></label>
+		<div id="brightnessSlider"></div>
+		<h2>Brightness</h2>
+			     1 <input type="range" id="brightness" min="1" max="255" value="122" onchange="showValue(this.value)"> 255<br> 
+			<div>   </div>
+			<div><span id="range">122</span></div>
+
+		<div id="main"></div>
+		<h2>Enter your desired RGB values</h2>
+			<div id="colorSet">
+				<label for="red">Red:</label>
+				<input type="number" id="red" min="0" max="255" placeholder="0-255"><br>
+				<label for="green">Green:</label>
+				<input type="number" id="green" min="0" max="255" placeholder="0-255"><br>
+				<label for="blue">Blue:</label>
+				<input type="number" id="blue" min="0" max="255" placeholder="0-255" ><br>
+
+				<button class="button" onclick="setRGB(); setTimeout(post, 700)">Submit</button>
+			</div>
+
+
+
+	<script type="text/javascript">
+		function showValue(newValue)
+			{
+				document.getElementById("range").innerHTML=newValue;
+			}
+	</script>
+	<script type="text/javascript">
+	var checkbox = document.querySelector("input[type='checkbox']");
+	  checkbox.addEventListener("change",function(){
+	     this.value = this.checked ? 1 : 0;
+	  });
+	</script>
+	<script type="text/javascript">
+	function post()
+	{
+		console.log("running post()");
+		end();
+	}
+	</script>
+
+	</body></center>
+</html>
