@@ -32,11 +32,11 @@ function test(){
 
 function setValues(){
 	console.log("setValues() executed");
-	var form =  {"redValue":document.getElementById('red').value.toString(),
-				"greenValue":document.getElementById('green').value.toString(),
-				"blueValue":document.getElementById('blue').value.toString(),
-				"brightnessValue":document.getElementById('brightness').value.toString(),
-				"lightStatus":document.getElementById('switch').value.toString()};
+	var form =  {"r":document.getElementById('red').value.toString(),
+				"g":document.getElementById('green').value.toString(),
+				"b":document.getElementById('blue').value.toString(),
+				"l":document.getElementById('brightness').value.toString(),
+				"t":document.getElementById('switch').value.toString()};
 	console.log(form);
 	var sendJSON = JSON.stringify(form);
 	console.log(sendJSON);
@@ -56,7 +56,7 @@ function alarmOn(){
 	fetch("/device/setValues", {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json" },
-	    body: '{"alarm":"1"}'
+	    body: '{"a":"1"}'
 	}).then( res => {
 		console.log(res);
 	})
@@ -69,7 +69,7 @@ function alarmOff(){
 	fetch("/device/setValues", {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json" },
-	    body: '{"alarm":"0"}'
+	    body: '{"a":"0"}'
 	}).then( res => {
 		console.log(res);
 	})
