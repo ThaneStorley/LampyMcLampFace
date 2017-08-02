@@ -5,7 +5,6 @@ const sayHello = () => {
 };
 
 function end() {
-	location.reload();
 	console.log("=====================");
 	console.log("END");
 }
@@ -50,26 +49,48 @@ function setValues(){
 
 }
 
-
-function alarmOn(){
-	console.log("alarmOn() executed");
+function setBrightness(){
+	console.log("setBrightness() executed");
+	var form = {"l":document.getElementById('brightness').value.toString()};
+	console.log(form);
+	var sendJSON = JSON.stringify(form);
 	fetch("/device/setValues", {
-	    method: "POST",
-	    headers: { "Content-Type": "application/json" },
-	    body: '{"a":"1"}'
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: sendJSON
+	}).then(res => {
+		console.log(res);
+	})
+	
+}
+
+
+function extra(number){
+	console.log("extra() executed");
+	var form = {"e":number.toString()};
+	console.log(form);
+	var sendJSON = JSON.stringify(form);
+	fetch("/device/setValues", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: sendJSON
 	}).then( res => {
 		console.log(res);
+
+		if(number==1337 &&checkResponse(res)==200)
+			allOfTheLights();
+
 	})
 
 
 }
 
-function alarmOff(){
+function extraOff(){
 	console.log("alarmOff() executed");
 	fetch("/device/setValues", {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json" },
-	    body: '{"a":"0"}'
+	    body: '{"e":"0"}'
 	}).then( res => {
 		console.log(res);
 	})
@@ -77,6 +98,15 @@ function alarmOff(){
 
 }
 
+function checkResponse(response){
+try {
+ // this is how you parse a string into JSON 
+ var result = (response.status);
+ return result;
+} catch (ex) {
+  console.log(ex);
+}
+}
 
 function checkRed(){
 	console.log("checkRed() executed");
@@ -162,6 +192,10 @@ function checkBlue(){
 
 }
 
+function allOfTheLights(){
+	var audio = new Audio('extras/airHorn.mp3');
+	audio.play();
+}
 
 
 HTMLElement.prototype.serialize = function(){

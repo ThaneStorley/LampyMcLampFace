@@ -19,27 +19,25 @@
 		<div id="toggle"></div>
 		<h2>Off/On</h2>
 				<label class="switch">
-				<input type="checkbox" id='switch' value="0" onclick="$(this).val(this.checked ? 1 : 0)"'>
+				<input type="checkbox" checked id='switch' value="1">
 				<span class="slider round"></span></label>
 		<div id="brightnessSlider"></div>
 		<h2>Brightness</h2>
-			     1 <input type="range" id="brightness" min="1" max="255" value="122" onchange="showValue(this.value)"> 255<br> 
+			     1 <input type="range" id="brightness" min="1" max="255" value="122" onchange="showValue(this.value); setBrightness()"> 255<br> 
 			<div>   </div>
 			<div><span id="range">122</span></div>
 
 		<div id="main"></div>
 		<h2>Enter your desired RGB values</h2>
-			<div id="colorSet">
+			<form id="colorSet">
 				<label for="red">Red:</label>
 				<input type="number" id="red" min="0" max="255" placeholder="0-255"><br>
 				<label for="green">Green:</label>
 				<input type="number" id="green" min="0" max="255" placeholder="0-255"><br>
 				<label for="blue">Blue:</label>
 				<input type="number" id="blue" min="0" max="255" placeholder="0-255" ><br>
-
-				<button class="button" onclick="setRGB(); setTimeout(post, 700)">Submit</button>
-			</div>
-
+			</form>
+				<button class="button" onclick="setRGB(); setTimeout(post, 1000)">Submit</button>
 
 
 	<script type="text/javascript">
