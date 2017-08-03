@@ -35,7 +35,8 @@ function setValues(){
 				"g":document.getElementById('green').value.toString(),
 				"b":document.getElementById('blue').value.toString(),
 				"l":document.getElementById('brightness').value.toString(),
-				"t":document.getElementById('switch').value.toString()};
+				"t":document.getElementById('switch').value.toString(),
+				"e":"0"};
 	console.log(form);
 	var sendJSON = JSON.stringify(form);
 	console.log(sendJSON);
@@ -51,7 +52,8 @@ function setValues(){
 
 function setStatus(){
 	console.log("setStatus() executed");
-	var form = {"t":document.getElementById('switch').value.toString()};
+	var form = {"t":document.getElementById('switch').value.toString(),
+				"e":"0"};
 	console.log(form);
 	var sendJSON = JSON.stringify(form);
 	fetch("/device/setValues", {
