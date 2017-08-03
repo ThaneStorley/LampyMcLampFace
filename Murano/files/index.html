@@ -19,7 +19,7 @@
 		<div id="toggle"></div>
 		<h2>Off/On</h2>
 				<label class="switch">
-				<input type="checkbox" checked id='switch' value="1">
+				<input type="checkbox" checked id='switch' value="1" onchange="setTimeout(setStatus, 0)">
 				<span class="slider round"></span></label>
 		<div id="brightnessSlider"></div>
 		<h2>Brightness</h2>
@@ -37,7 +37,7 @@
 				<label for="blue">Blue:</label>
 				<input type="number" id="blue" min="0" max="255" placeholder="0-255" ><br>
 			</form>
-				<button class="button" onclick="setRGB(); setTimeout(post, 1000)">Submit</button>
+				<button class="button" onclick="setRGB()">Submit</button>
 
 
 	<script type="text/javascript">
@@ -51,13 +51,6 @@
 	  checkbox.addEventListener("change",function(){
 	     this.value = this.checked ? 1 : 0;
 	  });
-	</script>
-	<script type="text/javascript">
-	function post()
-	{
-		console.log("running post()");
-		end();
-	}
 	</script>
 
 	</body></center>

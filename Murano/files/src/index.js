@@ -49,6 +49,20 @@ function setValues(){
 
 }
 
+function setStatus(){
+	console.log("setStatus() executed");
+	var form = {"t":document.getElementById('switch').value.toString()};
+	console.log(form);
+	var sendJSON = JSON.stringify(form);
+	fetch("/device/setValues", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: sendJSON
+	}).then(res => {
+		console.log(res);
+	})
+}
+
 function setBrightness(){
 	console.log("setBrightness() executed");
 	var form = {"l":document.getElementById('brightness').value.toString()};
