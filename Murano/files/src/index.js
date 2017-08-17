@@ -16,17 +16,57 @@ function setRGB() {
 		console.log("terminating setRGB(), not running setValues()")
 }
 
+/*
+function getLockStatus(){
+	fetch("/getLockStatus", {
+	    method: "GET",
+	    headers: { "Content-Type": "application/json" }
+	}).then( res => {
+		if (res.status >= 200) {
+			res.json().then(json => {
+				console.log(json)
+				let lockedState = json.lockstate;
+				selectImage(status);
+				console.log(lockedState);
+				return lockedState;
+			})
+		}
+		else {
+			return "sadface"
+		}
 
-function test(){
-	console.log("test() executed");
-
-	fetch("/test ", {
-		method: "GET",
-}).then( res => {
-		console.log(res);
 	})
+}
 
+function selectImage(state)
+{
+	let imageBlock = document.querySelector("div.lockState")[0]
+	if (state === "unlocked") {
+		imageBlock.querySlector("img.image_unlocked")[0].hidden = true;
+		imageBlock.querySlector("img.image_locked")[0].hidden = false;
+		// do false for "locked'"
+	} else {
+		imageBlock.querySlector("img.image_locked")[0].hidden = true;
+		imageBlock.querySlector("img.image_unlocked")[0].hidden = false;
+		// inverse
+	}
 
+}
+*/
+function showMeWhatYouGot(){
+	console.log("NOT ACTIVE 1.......alarm()");
+    console.log("NOT ACTVE 911.....cherries(10-wait)");
+    console.log("1337....rainbowCycle(10-wait)");
+    console.log("1338....rainbow(30-cycles, 0-wait)");
+    console.log("1970....disco(40-cycles, currentColor-color, 90-wait)");
+    console.log("NOT ACTIVE 10010...twinkle(10-numberOfLED's, 40-cycles, 100-wait);");
+    console.log("12321...pulse(currentColor-color, brightness-brightness, 15-wait");
+    console.log("12340...wipeFade(currentColor-color, brightness-brightness, 20-wait");
+    console.log("12821...randomPulse(10-cycles, brightness-brightness, 15-wait)");
+    console.log("31325...CMY(brightness-brightness)");
+    console.log("45654...guideBounce(currentColor-color, 20-wait)");
+    console.log("45678...guide(currentColor-color, 20-wait");
+    console.log("45918...guideStack(currentColor-color, 20-wait)");
 }
 
 function setValues(){
